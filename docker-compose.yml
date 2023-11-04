@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - .env
+    environment:
+        - POSTGRES_DB=codeuniontechtask
+        - POSTGRES_USER=codeuniontechtask_user
+        - POSTGRES_PASSWORD=povt203
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: on-failure
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
